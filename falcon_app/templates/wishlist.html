@@ -1,0 +1,123 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block main_content %}
+
+    <!-- BREADCRUMBS
+    ================================================== -->
+    <nav class="breadcrumb">
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col">
+            
+            <!-- Heading -->
+            <h5 class="breadcrumb-heading">
+              Wishlist
+            </h5>
+
+          </div>
+          <div class="col-auto">
+
+            <!-- Breadcrumb -->
+            <span class="breadcrumb-item">
+              <a href="{% url 'index' %}">Home</a>
+            </span>
+            <span class="breadcrumb-item active">
+              Wishlist
+            </span>
+          
+          </div>
+        </div> <!-- / .row -->
+      </div> <!-- / .container -->
+    </nav>
+
+    <!-- CART
+    ================================================== -->
+    <section class="section">
+      <div class="container">
+        <div class="row">
+          <div class="col-12 col-md-10">
+            
+            <!-- Heading -->
+            <h3 class="mb-5">
+              Your Favorite List:
+            </h3>
+            {% for i in wishlist %}
+            <div class="row align-items-center mb-5 mb-md-4">
+              <div class="col-12 col-md-2">
+                
+                <div class="img-square mb-4 mb-md-0">
+                  <img src="{{i.product.product_image.url}}" alt="..." class="img-cover">
+                </div>
+
+              </div>
+              <div class="col-12 col-md-5">
+                
+                <!-- Heading -->
+                <h4>
+                  {{i.product.product_name}}
+                </h4>
+
+                <!-- Text -->
+                <p class="mb-4 mb-md-0 text-sm text-muted">
+                  {{i.product.product_title}}
+                </p>
+
+              </div>
+              <div class="col-4 col-md-2">
+                
+                <!-- Price -->
+                <p class="mb-0 text-sm text-muted">
+                  INR. {{i.product.product_price}}
+                </p>
+
+              </div>
+              
+              <div class="col-4 col-md-1">
+                
+                <!-- Remove -->
+                <div class="close">
+                    <a href="{% url 'add_to_cart' pk=i.product.pk %}"><i class="fas fa-shopping-cart"></i></a>
+                </div>
+
+              </div>
+              <div class="col-4 col-md-1">
+                
+                <!-- Remove -->
+                <div class="close">
+                    <a href="{% url 'delete_wishlist' pk=i.product.pk %}"><i class="far fa-times-circle"></i></a>
+                </div>
+
+              </div>
+            </div> <!-- / .row -->
+            {% endfor %}
+
+             <!-- / .row -->
+
+            <hr class="mt-5 mb-4">
+
+            <div class="row align-items-center">
+              <div class="col">
+                
+                <!-- Link -->
+                <a href="{% url 'shop_page' %}">
+                  <i class="fas fa-angle-left mr-2"></i> Continue shopping 
+                </a>
+
+              </div>
+              <div class="col-auto">
+                
+                <!-- Total -->
+               
+                
+              </div>
+            </div> <!-- / .row -->
+
+            <hr class="mt-4 mb-5">
+
+          </div>
+          
+        </div> <!-- / .row -->
+      </div> <!-- / .container -->
+    </section>
+{% endblock %}

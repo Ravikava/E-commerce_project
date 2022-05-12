@@ -1,0 +1,160 @@
+{% extends 'seller_base.html' %}
+{% load static %}
+
+{% block main_content %}
+<!-- BREADCRUMB
+    ================================================== -->
+<nav class="breadcrumb">
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col">
+
+        <!-- Heading -->
+        <h5 class="breadcrumb-heading">
+          Edit Product
+        </h5>
+
+      </div>
+      <div class="col-auto">
+
+        <!-- Breadcrumb -->
+        <span class="breadcrumb-item">
+          <a href="{% url 'seller_index' %}">Home</a>
+        </span>
+        <span class="breadcrumb-item active">
+          Edit Product
+        </span>
+
+      </div>
+    </div> <!-- / .row -->
+  </div> <!-- / .container -->
+</nav>
+
+
+<!-- FORM
+    ================================================== -->
+<section class="section pb-0 mb-5">
+
+  <!-- Content -->
+  <div class="container">
+    <div class="row">
+      <div class="col-md-2">
+
+        <!-- Title -->
+        <h6 class="title">
+          Product Edit
+        </h6>
+
+      </div>
+      <div class="col-md-10">
+        {% if msg %}
+        <!-- Subheading -->
+        <p class="text-center text-muted mb-5">
+          {{msg}}
+        </p>
+        {% else %}
+        <!-- Subheading -->
+        <p class="text-center text-muted mb-5">
+          Edit Product Form
+        </p>
+        {% endif %}
+
+
+
+        <!-- Form -->
+        <form method="post" action="{% url 'edit_product' pk=product.pk %}" enctype="multipart/form-data" name="edit_product">
+          {% csrf_token %}
+          <div class="form-row">
+            <div class="form-group col-md-4">
+
+              <!-- Name -->
+              <label>Product Name</label>
+              <div class="input-group">
+                <input type="text" class="form-control" name="product_name" value="{{product.product_name}}">
+
+              </div>
+
+            </div>
+            <div class="form-group col-md-8">
+
+              <!-- Email -->
+              <label>Product Title</label>
+              <div class="input-group">
+                <input type="text" class="form-control" name="product_title" value="{{product.product_title}}">
+
+              </div>
+
+            </div>
+            <div class="form-group col-md-3">
+
+              <!-- Name -->
+              <label>Product Size</label>
+              <div class="input-group">
+                <input type="text" class="form-control" name="product_size" value="{{product.product_size}}">
+
+              </div>
+
+            </div>
+            <div class="form-group col-md-3">
+
+              <!-- Name -->
+              <label>Product Price</label>
+              <div class="input-group">
+                <input type="text" class="form-control" name="product_price" value="{{product.product_price}}">
+
+              </div>
+
+            </div>
+            <div class="form-group col-md-3">
+
+              <!-- Name -->
+              <label>Product Image</label>
+              <div class="input-group">
+                <input type="file" class="form-control" name="product_image">
+
+              </div>
+
+            </div>
+            <div class="form-group col-md-3">
+
+              <!-- Name -->
+              <label>Product Quantity</label>
+              <div class="input-group">
+                <input type="number" min="0" max="100" class="form-control" name="product_quantity" value="{{product.product_quantity}}">
+
+              </div>
+
+            </div>
+
+          </div> <!-- / .form-row -->
+          <div class="form-row">
+            <div class="form-group col-12">
+
+              <!-- Message -->
+              <label>Product Description</label>
+              <textarea class="form-control" name="product_description" rows="7">{{product.product_description}}</textarea>
+
+            </div>
+          </div> <!-- / .form-row -->
+          <div class="form-row">
+            <div class="col-12">
+
+              <!-- Submit -->
+              <button type="submit" class="btn btn-outline-primary">
+                Save
+              </button>
+
+
+
+            </div>
+          </div>
+        </form>
+
+      </div>
+    </div> <!-- / .row -->
+  </div> <!-- / .container -->
+
+</section>
+
+
+{% endblock %}

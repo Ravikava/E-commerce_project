@@ -1,0 +1,124 @@
+{% extends 'seller_base.html' %}
+{% load static %}
+
+{% block main_content %}
+<!-- FULLPAGE ================================================== -->
+<section class="section section-full section-top bg-light">
+
+    <!-- Content -->
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-8 col-lg-6">
+
+                <!-- Form -->
+                <form class="form-styled bg-white" method="post" action="{% url 'seller_change_pass' %}">
+                    {% csrf_token %}
+
+                    <!-- Heading -->
+                    <h4 class="text-center mb-4">
+                        Change Password
+                    </h4>
+
+                    <!-- Subheading -->
+                    {% if msg %}
+                    <p class="text-center text-muted mb-5" style="color: red;">
+                        {{msg}}
+                    </p>
+                    {% else %}
+                    <p class="text-center text-muted mb-5">
+                        Please fill out the form below to Change your Password.
+                    </p>
+                    {% endif %}
+
+                    <!-- Email -->
+                    <div class="form-group">
+                        <!-- Email -->
+                        <label>Old Password</label>
+                        <div class="input-group">
+
+                            <input type="password" name="old_password" class="form-control order-1">
+
+                            <div class="input-group-append order-0">
+                                <div class="input-group-text">
+                                    <svg class="input-group-icon icon-offset icon icon-lock" viewBox="0 0 106 106"
+                                        xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                        <path transform="translate(3 3)"
+                                            d="
+                            M25 50 V 20 A 25 25 0 0 1 50 0 A 25 25 0 0 1 75 20 V 50 H 90 V 100 H 10 V 50 H 75 M50 85 A 5 5 0 0 1 45 80 V 70 A 5 5 0 0 1 50 65 A 5 5 0 0 1 55 70 V 80 A 5 5 0 0 1 50 85">
+                                        </path>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- Password -->
+                    <div class="form-group">
+
+                        <!-- Name -->
+                        <label>New Password</label>
+                        <div class="input-group">
+                            <input type="password" name="new_password" class="form-control order-1">
+                            <div class="input-group-append order-0">
+                                <div class="input-group-text">
+                                    <svg class="input-group-icon icon-offset icon icon-lock" viewBox="0 0 106 106"
+                                        xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                        <path transform="translate(3 3)"
+                                            d="
+                            M25 50 V 20 A 25 25 0 0 1 50 0 A 25 25 0 0 1 75 20 V 50 H 90 V 100 H 10 V 50 H 75 M50 85 A 5 5 0 0 1 45 80 V 70 A 5 5 0 0 1 50 65 A 5 5 0 0 1 55 70 V 80 A 5 5 0 0 1 50 85">
+                                        </path>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </div>
+
+                    <div class="form-group">
+
+                        <!-- Name -->
+                        <label>Confirm New Password</label>
+                        <div class="input-group">
+                            <input type="password" name="confirm_new_password" class="form-control order-1">
+                            <div class="input-group-append order-0">
+                                <div class="input-group-text">
+                                    <svg class="input-group-icon icon-offset icon icon-lock" viewBox="0 0 106 106"
+                                        xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                        <path transform="translate(3 3)"
+                                            d="
+                            M25 50 V 20 A 25 25 0 0 1 50 0 A 25 25 0 0 1 75 20 V 50 H 90 V 100 H 10 V 50 H 75 M50 85 A 5 5 0 0 1 45 80 V 70 A 5 5 0 0 1 50 65 A 5 5 0 0 1 55 70 V 80 A 5 5 0 0 1 50 85">
+                                        </path>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </div>
+
+                    <!-- Footer -->
+                    <div class="form-row align-items-center">
+                        
+                        <div class="col-md">
+
+                            <!-- Button -->
+                            <div class="text-center mt-3">
+                                <button type="submit" class="btn btn-outline-primary">
+                                    Change Password
+                                </button>
+                            </div>
+
+                        </div>
+                    </div> <!-- / .form-row -->
+
+                    <!-- Link -->
+                    
+
+                </form>
+
+            </div>
+        </div> <!-- / .row -->
+    </div> <!-- / .container -->
+
+</section>
+{% endblock %}

@@ -1,0 +1,70 @@
+{% extends 'seller_base.html' %}
+{% load static %}
+
+{% block main_content %}
+
+    <!-- ITEMS
+    ================================================== -->
+    <section class="section">
+        <div class="container">
+            <div class="row">
+                {% for i in products %}
+                <div class="col-12 col-md-6 col-lg-4">
+                    <!-- Item -->
+                    <div class="position-relative">
+
+                        <!-- Card -->
+                        <a class="card border-0 mb-3" href="{% url 'view_product' pk=i.pk %}">
+
+                            <!-- Image -->
+                            <img src="{{i.product_image.url}}" alt="..." class="card-img">
+
+                            <!-- Body -->
+                            <a href="{% url 'delete_product' pk=i.pk %}"><button class="btn btn-sm btn-primary">
+                                <i class="fas fa-trash"></i>
+                            </button></a>
+                            <a href="{% url 'edit_product' pk=i.pk %}"><button class="btn btn-sm btn-info">
+                                <i class="fas fa-edit"></i>
+                            </button></a>
+                            <div class="card-body">
+                                <div class="row align-items-center mb-3">
+                                    <div class="col">
+
+                                        <!-- Heading -->
+                                        <h4 class="card-title mb-0">
+                                            {{i.product_name}}
+                                        </h4>
+
+                                    </div>
+                                    <div class="col-auto">
+
+                                        <p class="mb-0 text-sm text-muted">
+                                            INR {{i.product_price}}
+                                        </p>
+
+                                    </div>
+                                </div> <!-- / .row -->
+
+                                <!-- Text -->
+                                <p class="mb-0 text-sm text-muted">
+                                    {{i.product_title}}
+                                </p>
+
+                            </div>
+
+                        </a>
+
+                        <!-- Button -->
+                        
+
+                    </div>
+                    
+                    
+                </div>
+                {% endfor %}
+                
+            </div> <!-- / .row -->
+        </div> <!-- / .container -->
+    </section>
+
+{% endblock %}

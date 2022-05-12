@@ -1,0 +1,85 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block main_content %}
+<!-- FULLPAGE
+    ================================================== -->
+<section class="section section-full section-top bg-light">
+
+    <!-- Content -->
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-8 col-lg-6">
+
+                <!-- Form -->
+                <form class="form-styled bg-white" method="post" action="{% url 'otp_page' %}">
+                    {% csrf_token %}
+
+                    <!-- Heading -->
+                    <h4 class="text-center mb-4">
+                        Verification
+                    </h4>
+
+                    <!-- Subheading -->
+                    {% if msg %}
+                    <p class="text-center text-muted mb-5" style="color: red;">
+                        {{msg}}
+                    </p>
+                    {% else %}
+                    <p class="text-center text-muted mb-5">
+                        Please fill out the form below to verify your OTP.
+                    </p>
+                    {% endif %}
+
+                    <!-- Email -->
+                    <div class="form-group">
+                        <!-- Email -->
+                        <label>Enter OTP</label>
+                        <div class="input-group">
+
+                            <input type="password" name="otp" class="form-control order-1">
+
+                            <div class="input-group-append order-0">
+                                <div class="input-group-text">
+                                    <svg class="input-group-icon icon-offset icon icon-lock" viewBox="0 0 106 106"
+                                        xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                        <path transform="translate(3 3)"
+                                            d="
+                            M25 50 V 20 A 25 25 0 0 1 50 0 A 25 25 0 0 1 75 20 V 50 H 90 V 100 H 10 V 50 H 75 M50 85 A 5 5 0 0 1 45 80 V 70 A 5 5 0 0 1 50 65 A 5 5 0 0 1 55 70 V 80 A 5 5 0 0 1 50 85">
+                                        </path>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- Password -->
+                    
+
+                    <!-- Footer -->
+                    <div class="form-row align-items-center">
+                        
+                        <div class="col-md">
+
+                            <!-- Button -->
+                            <div class="text-center mt-3">
+                                <button type="submit" class="btn btn-outline-primary">
+                                    verify
+                                </button>
+                            </div>
+
+                        </div>
+                    </div> <!-- / .form-row -->
+
+                    <!-- Link -->
+                    
+
+                </form>
+
+            </div>
+        </div> <!-- / .row -->
+    </div> <!-- / .container -->
+
+</section>
+{% endblock %}

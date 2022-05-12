@@ -1,0 +1,455 @@
+<!doctype html>
+<html lang="en">
+{% load static %}
+<!-- Mirrored from yevgenysim.github.io/incline/product.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 12 Jan 2022 10:36:05 GMT -->
+<!-- Added by HTTrack -->
+<meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Favicons -->
+  <link rel="apple-touch-icon" sizes="180x180" href="{% static 'assets/ico/apple-touch-icon.png' %}">
+  <link rel="icon" type="image/png" sizes="32x32" href="{% static 'assets/ico/favicon-32x32.png' %}">
+  <link rel="icon" type="image/png" sizes="16x16" href="{% static 'assets/ico/favicon-16x16.png' %}">
+  <link rel="manifest" href="{% static 'assets/ico/site.webmanifest' %}">
+  <link rel="mask-icon" href="{% static 'assets/ico/safari-pinned-tab.svg' %}" color="#5bbad5">
+  <link rel="shortcut icon" href="{% static 'assets/ico/favicon.ico' %}">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="msapplication-config" content="{% static 'assets/ico/browserconfig.xml' %}">
+  <meta name="theme-color" content="#ffffff">
+
+  <!-- Plugins CSS -->
+  <link rel="stylesheet" href="{% static 'assets/libs/flickity/dist/flickity.min.css' %}">
+  <link rel="stylesheet" href="{% static 'assets/libs/flickity-fade/flickity-fade.css' %}">
+  <link rel="stylesheet" href="{% static 'assets/libs/fullpage.js/dist/fullpage.min.css' %}">
+  <link rel="stylesheet" href="{% static 'assets/libs/highlightjs/styles/codepen-embed.css' %}">
+  <link rel="stylesheet" href="{% static 'assets/libs/%40fortawesome/fontawesome-free/css/all.min.css' %}">
+  <link rel="stylesheet" href="{% static 'assets/libs/incline-icons/style.min.css' %}">
+
+  <!-- Theme CSS -->
+  <link rel="stylesheet" href="{% static 'assets/css/theme-brown.min.css' %}">
+
+  <title>Incline | Buyer</title>
+</head>
+
+<body>
+
+  <!-- MODALS
+    ================================================== -->
+  <div class="modal fade" id="modal-video" tabindex="-1" role="dialog" aria-labelledby="modal-video-header"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-video modal-lg" role="document">
+      <div class="modal-content">
+
+        <!-- Header -->
+        <div class="modal-header">
+
+          <!-- Title -->
+          <h4 class="modal-title text-white" id="modal-video-header">
+            Video demonstration
+          </h4>
+
+          <!-- Close -->
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+
+        </div>
+        <div class="modal-body">
+
+          <!-- Video -->
+          <video src="{% static 'assets/video/1.mp4' %}" class="img-fluid" controls></video>
+
+        </div>
+      </div> <!-- / .modal-content -->
+    </div> <!-- / .modal-dialog -->
+  </div> <!-- / .modal -->
+
+  {% if current_page not in acc_page %}
+  <nav class="navbar navbar-expand-xl navbar-light  fixed-top">
+    <div class="container">
+
+      <!-- Brand -->
+      <a class="navbar-brand" href="index-2.html">
+        <svg class="navbar-brand-svg" viewBox="0 0 245 80" xmlns="http://www.w3.org/2000/svg"
+          xmlns:xlink="http://www.w3.org/1999/xlink">
+          <path d="M0 0 L 20 10 L 0 20 Z" class="navbar-brand-svg-i" fill="currentColor"></path>
+          <path d="M0 30 L 20 40 L 0 50 Z M20 45 L 0 55 L 20 65 Z M0 60 L 20 70 L 0 80 Z" fill="currentColor"></path>
+          <text x="40" y="70" font-family="Arial, sans-serif" font-size="60" font-weight="bold" letter-spacing="-.025em"
+            fill="currentColor">incline.</text>
+        </svg>
+      </a>
+
+      <!-- Toggler -->
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
+        aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <!-- Collapse -->
+      <div class="collapse navbar-collapse" id="navbarCollapse">
+
+        <!-- Social -->
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item-divider">
+            <span class="nav-link">
+              <span></span>
+            </span>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link">
+              <i class="fab fa-github"></i>
+              <span class="d-xl-none ml-2">
+                Github
+              </span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link">
+              <i class="fab fa-twitter"></i>
+              <span class="d-xl-none ml-2">
+                Twitter
+              </span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link">
+              <i class="fab fa-instagram"></i>
+              <span class="d-xl-none ml-2">
+                Instagram
+              </span>
+            </a>
+          </li>
+        </ul>
+
+        <!-- Links -->
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link " href="{% url 'index' %}">
+              Home
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'shop_page' %}">
+              Shop
+            </a>
+          </li>
+          <li class="nav-item ">
+            <a class="nav-link" href="{% url 'contact_page' %}">
+              Contact Us
+            </a>
+          </li>
+          
+          {% if request.session.email %}
+          <li class="nav-item ml-5">
+            <a class="nav-link" href="{% url 'cart_page' %}">
+              <i class='fas fa-shopping-cart mr-2'></i>Cart
+            </a>
+          </li>
+          <li class="nav-item ">
+            <a class="nav-link" href="{% url 'wishlist' %}">
+              <i class='fas fa-heart mr-2'></i>Wishlist
+            </a>
+          </li>
+          {% endif %}
+          {% if request.session.email %}
+          <li class="nav-item ml-5">
+            <a href="{% url 'profile_page' %}" class="nav-link">
+              <i class='fas fa-user mr-2'></i>Profile
+            </a>
+          </li>
+          <li class="nav-item-divider">
+            <span class="nav-link">
+              <span></span>
+            </span>
+          </li>
+          <li class="nav-item">
+            <a href="{% url 'log_out' %}" class="nav-link">
+              <i class='fas fa-lock mr-2'></i>Log Out
+            </a>
+          </li>
+          {% else %}
+          <li class="nav-item ml-5 ">
+            <a href="{% url 'login_page' %}" class="nav-link">
+              Login
+            </a>
+          </li>
+          <li class="nav-item-divider">
+            <span class="nav-link">
+              <span></span>
+            </span>
+          </li>
+          <li class="nav-item">
+            <a href="{% url 'register_page' %}" class="nav-link">
+              Register
+            </a>
+          </li>
+          {% endif %}
+        </ul>
+
+      </div> <!-- / .navbar-collapse -->
+
+    </div> <!-- / .container -->
+  </nav>
+  {% else %}
+  <!-- NAVBAR
+    ================================================== -->
+  <nav class="navbar navbar-expand-xl navbar-dark  navbar-togglable  fixed-top">
+    <div class="container">
+
+      <!-- Brand -->
+      <a class="navbar-brand" href="{% url 'index' %}">
+        <svg class="navbar-brand-svg" viewBox="0 0 245 80" xmlns="http://www.w3.org/2000/svg"
+          xmlns:xlink="http://www.w3.org/1999/xlink">
+          <path d="M0 0 L 20 10 L 0 20 Z" class="navbar-brand-svg-i" fill="currentColor"></path>
+          <path d="M0 30 L 20 40 L 0 50 Z M20 45 L 0 55 L 20 65 Z M0 60 L 20 70 L 0 80 Z" fill="currentColor">
+          </path>
+          <text x="40" y="70" font-family="Arial, sans-serif" font-size="60" font-weight="bold" letter-spacing="-.025em"
+            fill="currentColor">incline.</text>
+        </svg>
+      </a>
+
+      <!-- Toggler -->
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
+        aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <!-- Collapse -->
+      <div class="collapse navbar-collapse" id="navbarCollapse">
+
+        <!-- Social -->
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item-divider">
+            <span class="nav-link">
+              <span></span>
+            </span>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link">
+              <i class="fab fa-github"></i>
+              <span class="d-xl-none ml-2">
+                Github
+              </span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link">
+              <i class="fab fa-twitter"></i>
+              <span class="d-xl-none ml-2">
+                Twitter
+              </span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link">
+              <i class="fab fa-instagram"></i>
+              <span class="d-xl-none ml-2">
+                Instagram
+              </span>
+            </a>
+          </li>
+        </ul>
+
+        <!-- Links -->
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item ">
+            <a class="nav-link " href="{% url 'index' %}">
+              Home
+            </a>
+          </li>
+          <li class="nav-item ">
+            <a class="nav-link" href="{% url 'shop_page' %}">
+              Shop
+            </a>
+          </li>
+          <li class="nav-item ">
+            <a class="nav-link" href="{% url 'contact_page' %}">
+              Contact Us
+            </a>
+          </li>
+          {% if request.session.email %}
+          <li class="nav-item ml-5">
+            <a class="nav-link" href="{% url 'cart_page' %}">
+              <i class="fa fa-shopping-cart mr-2"></i> Cart
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'wishlist' %}">
+              <i class="fas fa-heart mr-2"></i> Wishlist
+            </a>
+          </li>
+          {% endif %}
+          {% if request.session.email %}
+          <li class="nav-item ml-5">
+            <a href="{% url 'profile_page' %}" class="nav-link">
+              <i class="far fa-user mr-2"></i> Profile
+            </a>
+          </li>
+          <li class="nav-item-divider">
+            <span class="nav-link">
+              <span></span>
+            </span>
+          </li>
+          <li class="nav-item">
+            <a href="{% url 'log_out' %}" class="nav-link">
+              <i class="fas fa-lock mr-2"></i> Log Out
+            </a>
+          </li>
+          {% else %}
+          <li class="nav-item ml-5 ">
+            <a href="{% url 'login_page' %}" class="nav-link">
+              Login
+            </a>
+          </li>
+          <li class="nav-item-divider">
+            <span class="nav-link">
+              <span></span>
+            </span>
+          </li>
+          <li class="nav-item">
+            <a href="{% url 'register_page' %}" class="nav-link">
+              Register
+            </a>
+          </li>
+          {% endif %}
+        </ul>
+
+      </div> <!-- / .navbar-collapse -->
+
+    </div> <!-- / .container -->
+  </nav>
+  {% endif %}
+
+  {% block main_content %}
+  {% endblock %}
+
+  <!-- FOOTER
+    ================================================== -->
+  <footer class="section bg-dark">
+
+    <!-- Triangles -->
+    <div class="bg-triangle bg-triangle-light bg-triangle-bottom bg-triangle-left"></div>
+    <div class="bg-triangle bg-triangle-light bg-triangle-bottom bg-triangle-right"></div>
+
+    <!--Content -->
+    <div class="container">
+      <div class="row align-self-center">
+        <div class="col-md-auto">
+
+          <!-- Brand -->
+          <p>
+            <a href="#" class="footer-brand text-white">
+              <svg class="footer-brand-svg" viewBox="0 0 235 80" xmlns="http://www.w3.org/2000/svg"
+                xmlns:xlink="http://www.w3.org/1999/xlink">
+                <path d="M0 0 L 20 10 L 0 20 Z" class="text-primary" fill="currentColor"></path>
+                <path d="M0 30 L 20 40 L 0 50 Z M20 45 L 0 55 L 20 65 Z M0 60 L 20 70 L 0 80 Z" fill="currentColor">
+                </path>
+                <text x="40" y="70" font-family="Arial, sans-serif" font-size="60" font-weight="bold"
+                  letter-spacing="-.025em" fill="currentColor">incline.</text>
+              </svg>
+            </a>
+          </p>
+
+        </div>
+        <div class="col-md">
+
+          <!-- Links -->
+          <ul class="list-unstyled list-inline text-md-right">
+            <li class="list-inline-item mr-2">
+              <a href="#" class="text-white">
+                Terms and conditions
+              </a>
+            </li>
+            <li class="list-inline-item mr-2">
+              <a href="#" class="text-white">
+                Privacy policy
+              </a>
+            </li>
+            <li class="list-inline-item">
+              <a href="{% url 'contact_page' %}" class="text-white">
+                Contact us
+              </a>
+            </li>
+
+          </ul>
+          <ul class="list-unstyled list-inline text-md-right">
+            <li class="list-inline-item">
+              <a href="{% url 'seller_register' %}" class="text-white">
+                Seller Sign Up
+              </a>
+            </li>
+            <li class="list-inline-item">
+              <a href="{% url 'seller_login' %}" class="text-white">
+                Seller Sign In
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div> <!-- / .row -->
+      <div class="row align-items-center">
+        <div class="col-md">
+
+          <!-- Copyright -->
+          <p class="text-white text-muted">
+            <small>
+              &copy; Copyright <span class="current-year"></span> Simpleqode. All rights reserved.
+            </small>
+          </p>
+
+        </div>
+        <div class="col-md">
+
+          <!-- Social links -->
+          <ul class="list-inline list-unstyled text-md-right">
+            <li class="list-inline-item">
+              <a href="#">
+                <i class="fab fa-github"></i>
+              </a>
+            </li>
+            <li class="list-inline-item ml-3">
+              <a href="#">
+                <i class="fab fa-twitter"></i>
+              </a>
+            </li>
+            <li class="list-inline-item ml-3">
+              <a href="#">
+                <i class="fab fa-instagram"></i>
+              </a>
+            </li>
+          </ul>
+
+        </div>
+      </div> <!-- / .row -->
+    </div> <!-- / .container -->
+
+  </footer>
+
+  <!-- JAVASCRIPT
+      ================================================== -->
+  <!-- Global JS -->
+  <script src="{% static 'assets/libs/jquery/dist/jquery.min.js' %}"></script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCnKt8_N4-FKOnhI_pSaDL7g_g-XI1-R9E"></script>
+
+  <!-- Plugins JS -->
+  <script src="{% static 'assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js' %}"></script>
+  <script src="{% static 'assets/libs/flickity/dist/flickity.pkgd.min.js' %}"></script>
+  <script src="{% static 'assets/libs/flickity-fade/flickity-fade.js' %}"></script>
+  <script src="{% static 'assets/libs/jquery-parallax.js/parallax.min.js' %}"></script>
+  <script src="{% static 'assets/libs/waypoints/lib/jquery.waypoints.min.js' %}"></script>
+  <script src="{% static 'assets/libs/waypoints/lib/shortcuts/inview.min.js' %}"></script>
+  <script src="{% static 'assets/libs/fullpage.js/vendors/scrolloverflow.min.js' %}"></script>
+  <script src="{% static 'assets/libs/fullpage.js/dist/fullpage.min.js' %}"></script>
+  <script src="{% static 'assets/libs/highlightjs/highlight.pack.min.js' %}"></script>
+
+  <!-- Theme JS -->
+  <script src="{% static 'assets/js/theme.min.js' %}"></script>
+
+</body>
+
+<!-- Mirrored from yevgenysim.github.io/incline/product.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 12 Jan 2022 10:36:14 GMT -->
+
+</html>
